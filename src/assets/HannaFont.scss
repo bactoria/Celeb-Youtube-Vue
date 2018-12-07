@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'BM-HANNA';
+  src: url('../assets/BM-HANNA.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'BM-HANNA-Air';
+  src: url('../assets/BM-HANNA-Air.woff') format('woff');
+}
+
+.Hanna {
+  font-family: BM-HANNA;
+}
+
+.HannaAir {
+  font-family: BM-HANNA-Air;
+}
