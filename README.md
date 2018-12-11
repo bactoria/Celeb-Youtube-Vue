@@ -4,6 +4,14 @@
 
 [http://yoututu.kr](http://yoututu.kr)
 
-![](./assets/yoututu1.PNG)
+<img src="./assets/yoututu1.PNG" width="50%">
 
-![](./assets/yoututu2.PNG)
+<img src="./assets/yoututu2.PNG" width="50%">
+
+&nbsp;
+
+---
+
+### 변경사항
+
+- 2018.12.11 :: 일별 구독자 변경 차트 추가
