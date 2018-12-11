@@ -1,8 +1,14 @@
 <template>
   <div align="center">
-
     <line-chart :chart-data="datacollection" :options="options"
                 style="width: 80%; height: 150px;"></line-chart>
+
+    <div class="container">
+      <div class="d-flex flex-row justify-content-center">
+        <div v-bind:class="{ nonSelected: selected !== 'hour'}" class="chartBtn col-2" @click="hour()">1시간</div>
+        <div v-bind:class="{ nonSelected: selected !== 'day'}" class="chartBtn col-2" @click="day()">1일</div>
+      </div>
+    </div>
 
   </div>
 </template>
@@ -16,25 +22,37 @@
       LineChart
     },
     props: {
-      channelLogHour: []
+      channelLogHour: [],
+      channelLogDay: []
     },
     data() {
       return {
         datacollection: null,
         options: null,
+        selected: ''
       }
     },
     mounted() {
-      this.fillData()
+      this.hour()
     },
     methods: {
-      fillData() {
+      hour() {
+        this.selected = 'hour'
+        var subscriberList = this.channelLogHour.map(x => x.subscriber).reverse()
+        var xList = this.channelLogHour.map(x => x.channelLogPk.hour + '시').reverse()
+        this.fillData(subscriberList, xList);
+      },
+      day() {
+        this.selected = 'day'
+        var subscriberList = this.channelLogDay.map(x => x.subscriber).reverse()
+        var xList = this.channelLogDay.map(x => x.channelLogPk.date.split("-")[2].replace(/(^0+)/, "") + '일').reverse()
+        this.fillData(subscriberList, xList);
+      },
 
-        var subscriberList = this.channelLogHour.map(x=> x.subscriber).reverse()
-        var hourList = this.channelLogHour.map(x=> x.channelLogPk.hour + '시').reverse()
+      fillData(subscriberList, xList) {
 
         this.datacollection = {
-          labels: hourList,
+          labels: xList,
           datasets: [
             {
               label: '구독자 수',
@@ -71,5 +89,19 @@
   }
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+  .nonSelected {
+    opacity: .4;
+  }
+
+  .chartBtn {
+    background-color: #6c757d;
+    color: antiquewhite;
+
+    margin: 5%;
+    padding: 1% 0;
+    border-radius: 5%;
+  }
+
 </style>

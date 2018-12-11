@@ -7,5 +7,8 @@ export default {
   },
   channelLogHour(state) {
     return state.channelLogHour
+  },
+  channelLogDay(state) {
+    return state.channelLogDay
   }
 }

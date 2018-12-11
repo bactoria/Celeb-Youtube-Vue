@@ -10,8 +10,10 @@ export default {
   [Const.CLEAR_CHANNEL]: (state) => {
     state.channel = ''
   },
-
   [Const.GET_CHANNEL_LOG_HOUR]: (state, payload) => {
     state.channelLogHour = payload
+  },
+  [Const.GET_CHANNEL_LOG_DAY]: (state, payload) => {
+    state.channelLogDay = payload
   }
 }

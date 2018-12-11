@@ -1,5 +1,6 @@
 export default {
   channelList: [],
   channel: '',
-  channelLogHour: []
+  channelLogHour: [],
+  channelLogDay: []
 }

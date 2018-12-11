@@ -29,8 +29,24 @@ export default {
     var url = server + "/channelLog/" + payload + "/hour"
 
     axios.get(url)
+
       .then((response) => {
+        console.log(response.data)
         store.commit(Const.GET_CHANNEL_LOG_HOUR, response.data)
+      })
+      .catch(() => {
+      });
+
+  },
+
+  [Const.GET_CHANNEL_LOG_DAY]: (store, payload) => {
+    var url = server + "/channelLog/" + payload + "/day"
+
+    axios.get(url)
+
+      .then((response) => {
+        console.log(response.data)
+        store.commit(Const.GET_CHANNEL_LOG_DAY, response.data)
       })
       .catch(() => {
       });
