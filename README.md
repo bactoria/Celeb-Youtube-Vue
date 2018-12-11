@@ -1,30 +1,9 @@
 # celeb-youtube
 
-> A Vue.js project
+> 유튜브하는 연예인 알리기 프로젝트
 
-## Build Setup
+[http://yoututu.kr](http://yoututu.kr)
 
-``` bash
-# install dependencies
-npm install
+![](./assets/yoututu1.PNG)
 
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+![](./assets/yoututu2.PNG)
