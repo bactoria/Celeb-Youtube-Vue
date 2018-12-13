@@ -31,7 +31,6 @@ export default {
     axios.get(url)
 
       .then((response) => {
-        console.log(response.data)
         store.commit(Const.GET_CHANNEL_LOG_HOUR, response.data)
       })
       .catch(() => {
@@ -45,12 +44,9 @@ export default {
     axios.get(url)
 
       .then((response) => {
-        console.log(response.data)
         store.commit(Const.GET_CHANNEL_LOG_DAY, response.data)
       })
       .catch(() => {
       });
-
   }
-
 }

@@ -2,7 +2,6 @@
   <div align="center">
     <line-chart :chart-data="datacollection" :options="options"
                 style="width: 80%; height: 150px;"></line-chart>
-
     <div class="container">
       <div class="d-flex flex-row justify-content-center">
         <div v-bind:class="{ nonSelected: selected !== 'hour'}" class="chartBtn col-2" @click="hour()">1시간</div>
@@ -15,56 +14,23 @@
 
 <script>
   import LineChart from './LineChart.js'
+  import Const from '../Constant'
+  import {mapGetters} from 'vuex';
 
   export default {
     name: "SubscriberChart",
     components: {
       LineChart
     },
-    props: {
-      channelLogHour: [],
-      channelLogDay: []
+    computed: {
+      ...mapGetters({
+        datacollection: 'datacollection'
+      })
     },
     data() {
       return {
-        datacollection: null,
-        options: null,
-        selected: ''
-      }
-    },
-    mounted() {
-      this.hour()
-    },
-    methods: {
-      hour() {
-        this.selected = 'hour'
-        var subscriberList = this.channelLogHour.map(x => x.subscriber).reverse()
-        var xList = this.channelLogHour.map(x => x.channelLogPk.hour + '시').reverse()
-        this.fillData(subscriberList, xList);
-      },
-      day() {
-        this.selected = 'day'
-        var subscriberList = this.channelLogDay.map(x => x.subscriber).reverse()
-        var xList = this.channelLogDay.map(x => x.channelLogPk.date.split("-")[2].replace(/(^0+)/, "") + '일').reverse()
-        this.fillData(subscriberList, xList);
-      },
-
-      fillData(subscriberList, xList) {
-
-        this.datacollection = {
-          labels: xList,
-          datasets: [
-            {
-              label: '구독자 수',
-              pointBackgroundColor: 'white',
-//              backgroundColor: 'rgba(138,43,242, 0.6)',
-              borderWidth: 2,
-              borderColor: 'violet',
-              data: subscriberList
-            }
-          ]
-        }
-        this.options = {
+        selected: 'hour',
+        options: {
           legend: {display: false},
           maintainAspectRatio: false,
           responsive: true,
@@ -85,6 +51,20 @@
           }
         }
       }
+    },
+    beforeCreate() {
+      this.$store.dispatch(Const.GET_CHANNEL_LOG_HOUR, this.$route.params.id);
+      this.$store.dispatch(Const.GET_CHANNEL_LOG_DAY, this.$route.params.id);
+    },
+    methods: {
+      hour() {
+        this.selected = 'hour'
+        this.$store.commit(Const.UPDATE_CHANNEL_LOG_HOUR);
+      },
+      day() {
+        this.selected = 'day'
+        this.$store.commit(Const.UPDATE_CHANNEL_LOG_DAY);
+      },
     }
   }
 </script>

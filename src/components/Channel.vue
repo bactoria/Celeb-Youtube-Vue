@@ -37,7 +37,7 @@
         <div>
           <div class="channelInfo">구독자 변동</div>
           <div>
-          <subscriber-chart :channel-log-hour="channelLogHour" :channel-log-day="channelLogDay"/>
+            <subscriber-chart />
 
           </div>
         </div>
@@ -68,15 +68,11 @@
     },
     components: {SubscriberChart, YoutubeVideo},
     beforeCreate() {
-      this.$store.dispatch(Const.GET_CHANNEL_LOG_HOUR, this.$route.params.id);
-      this.$store.dispatch(Const.GET_CHANNEL_LOG_DAY, this.$route.params.id);
       this.$store.dispatch(Const.GET_CHANNEL, this.$route.params.id);
     },
     computed:
       mapGetters({
         channel: 'channel',
-        channelLogHour: 'channelLogHour',
-        channelLogDay: 'channelLogDay'
       }),
     methods: {
       toLocale(num) {

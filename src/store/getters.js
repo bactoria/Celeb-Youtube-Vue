@@ -5,10 +5,7 @@ export default {
   channel(state) {
     return state.channel
   },
-  channelLogHour(state) {
-    return state.channelLogHour
+  datacollection(state) {
+    return state.datacollection
   },
-  channelLogDay(state) {
-    return state.channelLogDay
-  }
 }

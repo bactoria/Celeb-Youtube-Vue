@@ -2,5 +2,10 @@ export default {
   channelList: [],
   channel: '',
   channelLogHour: [],
-  channelLogDay: []
+  channelLogHour_X: [],
+  channelLogHour_Y: [],
+  channelLogDay: [],
+  channelLogDay_X: [],
+  channelLogDay_Y: [],
+  datacollection: null
 }
