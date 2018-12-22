@@ -9,10 +9,12 @@ import VueYoutube from 'vue-youtube'
 import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import VueAnalytics from 'vue-analytics'
+import VueLazyload from 'vue-lazyload'
 
-
+Vue.use(VueLazyload)
 Vue.use(VueYoutube)
 Vue.config.productionTip = false
+
 
 let debug = {
   enable: false,

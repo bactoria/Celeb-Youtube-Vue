@@ -4,11 +4,12 @@
     <!--Mobile-->
     <div class="d-xs-block d-md-none">
       <div class="d-flex flex-row justify-content-center" v-for="i in Math.ceil(channelList.length / 3)">
-        <div style="width: 30%; margin: 1.5%;" v-for="channel in channelList.slice((i - 1) * 3, i * 3)" :key="channel.id">
+        <div style="width: 30%; margin: 1.5%;" v-for="channel in channelList.slice((i - 1) * 3, i * 3)"
+             :key="channel.id">
           <router-link v-bind:to="'/channel/'+channel.id">
-            <div class="channelCard">
+            <div class="channelCard" v-lazy-container="{ selector: 'img' }">
 
-              <img class="channelImage" :src="channel.image"/>
+              <img class="channelImage" :data-src="channel.image"/>
 
               <div class="channelName">{{channel.name}}</div>
 
@@ -25,13 +26,13 @@
     </div>
 
     <!--Desktop-->
-    <div class="d-none d-md-block" >
+    <div class="d-none d-md-block">
       <div class="d-md-flex flex-row justify-content-center" v-for="i in Math.ceil(channelList.length / 5)">
         <div style="width: 18%; margin: 1%;" v-for="channel in channelList.slice((i - 1) * 5, i * 5)" :key="channel.id">
           <router-link v-bind:to="'/channel/'+channel.id">
-            <div class="channelCard">
+            <div class="channelCard" v-lazy-container="{ selector: 'img' }">
 
-              <img class="channelImage" :src="channel.image"/>
+              <img class="channelImage" :data-src="channel.image"/>
 
               <div class="channelName">{{channel.name}}</div>
 
@@ -78,7 +79,9 @@
   }
 
   @media (min-width: 544px) {
-    .root {font-size: 1.7vw;}
+    .root {
+      font-size: 1.7vw;
+    }
 
     .channelCard {
       border: 3px solid antiquewhite;
@@ -87,7 +90,9 @@
 
   /* Medium devices (tablets, 768px and up) */
   @media (min-width: 768px) {
-    .root {font-size: 1vw;}
+    .root {
+      font-size: 1vw;
+    }
 
   }
 
@@ -111,7 +116,7 @@
 
   .channelName {
     white-space: nowrap;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
     overflow: hidden;
 
     color: $title-color;
@@ -120,7 +125,7 @@
 
   .channelTitle {
     white-space: nowrap;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
     overflow: hidden;
 
     font-size: 1em;
