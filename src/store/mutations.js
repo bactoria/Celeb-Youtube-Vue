@@ -2,7 +2,9 @@ import Const from '../Constant'
 
 export default {
   [Const.GET_CHANNELS]: (state, payload) => {
-    state.channelList = payload
+
+    const filteredChannelList = payload.filter(word => word.title != null)
+    state.channelList = filteredChannelList
   },
   [Const.GET_CHANNEL]: (state, payload) => {
     state.channel = payload
