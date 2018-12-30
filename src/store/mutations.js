@@ -45,7 +45,7 @@ export default {
     }
   },
   [Const.GET_CHANNEL_LOG_HOUR]: (state, payload) => {
-    state.channelLogHour_X = payload.map(x => x.channelLogPk.hour + '시').reverse()
+    state.channelLogHour_X = payload.map(x => x.hour + '시').reverse()
     state.channelLogHour_Y = payload.map(x => x.subscriber).reverse()
     state.channelLogHour = payload
 
@@ -64,7 +64,7 @@ export default {
     }
   },
   [Const.GET_CHANNEL_LOG_DAY]: (state, payload) => {
-    state.channelLogDay_X = payload.map(x => x.channelLogPk.date.split("-")[2].replace(/(^0+)/, "") + '일').reverse()
+    state.channelLogDay_X = payload.map(x => x.date.split("-")[2].replace(/(^0+)/, "") + '일').reverse()
     state.channelLogDay_Y = payload.map(x => x.subscriber).reverse()
     state.channelLogDay = payload
   }
