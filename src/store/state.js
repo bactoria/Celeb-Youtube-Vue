@@ -7,5 +7,8 @@ export default {
   channelLogDay: [],
   channelLogDay_X: [],
   channelLogDay_Y: [],
+  channelLogWeek: [],
+  channelLogWeek_X: [],
+  channelLogWeek_Y: [],
   datacollection: null
 }

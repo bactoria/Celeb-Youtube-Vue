@@ -6,6 +6,7 @@
       <div class="d-flex flex-row justify-content-center">
         <div v-bind:class="{ nonSelected: selected !== 'hour'}" class="chartBtn col-2" @click="hour()">1시간</div>
         <div v-bind:class="{ nonSelected: selected !== 'day'}" class="chartBtn col-2" @click="day()">1일</div>
+        <div v-bind:class="{ nonSelected: selected !== 'week'}" class="chartBtn col-2" @click="week()">1주</div>
       </div>
     </div>
 
@@ -55,6 +56,7 @@
     beforeCreate() {
       this.$store.dispatch(Const.GET_CHANNEL_LOG_HOUR, this.$route.params.id);
       this.$store.dispatch(Const.GET_CHANNEL_LOG_DAY, this.$route.params.id);
+      this.$store.dispatch(Const.GET_CHANNEL_LOG_WEEK, this.$route.params.id);
     },
     methods: {
       hour() {
@@ -64,6 +66,10 @@
       day() {
         this.selected = 'day'
         this.$store.commit(Const.UPDATE_CHANNEL_LOG_DAY);
+      },
+      week() {
+        this.selected = 'week'
+        this.$store.commit(Const.UPDATE_CHANNEL_LOG_WEEK);
       },
     }
   }

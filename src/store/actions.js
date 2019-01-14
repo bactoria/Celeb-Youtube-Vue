@@ -48,5 +48,17 @@ export default {
       })
       .catch(() => {
       });
+  },
+
+  [Const.GET_CHANNEL_LOG_WEEK]: (store, payload) => {
+    var url = server + "/channelLog/" + payload + "/week"
+
+    axios.get(url)
+
+      .then((response) => {
+        store.commit(Const.GET_CHANNEL_LOG_WEEK, response.data)
+      })
+      .catch(() => {
+      });
   }
 }
