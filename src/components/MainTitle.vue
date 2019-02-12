@@ -1,7 +1,8 @@
 <template>
   <div class="root" align="center">
     <router-link to="/">
-    <img  class="title-img" src="../assets/coo5.png">
+      <img class="title-img" src="../assets/title.png" style="width: 40%">
+      <div style="height: 2vh;"/>
     </router-link>
   </div>
 </template>
