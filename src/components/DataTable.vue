@@ -9,11 +9,12 @@
           <router-link v-bind:to="'/channel/'+channel.id">
             <div class="channelCard" v-lazy-container="{ selector: 'img' }">
 
-              <img class="channelImage" :data-src="channel.image"/>
 
               <div class="channelName">{{channel.name}}</div>
 
-              <div class="channelTitle">{{channel.title}}</div>
+              <div class="channelTitle HannaAir">{{channel.title}}</div>
+
+              <img class="channelImage" :data-src="channel.image"/>
 
               <div class="channelSubscriber">
                 구독자 {{channel.subscriber_string}}
@@ -32,11 +33,14 @@
           <router-link v-bind:to="'/channel/'+channel.id">
             <div class="channelCard" v-lazy-container="{ selector: 'img' }">
 
-              <img class="channelImage" :data-src="channel.image"/>
 
               <div class="channelName">{{channel.name}}</div>
 
-              <div class="channelTitle">{{channel.title}}</div>
+              <div class="channelTitle HannaAir">{{channel.title}}</div>
+
+              <img class="channelImage" :data-src="channel.image"/>
+
+              <div style="height: 10px;"/>
 
               <div class="channelSubscriber">
                 구독자 {{channel.subscriber_string}}
@@ -68,23 +72,31 @@
 </script>
 
 <style lang="scss" scoped>
+  @import "../assets/HannaFont";
+
   @media (max-width: 543px) {
     .root {
       font-size: 2vw;
     }
-    .channelCard {
-      border: 2px solid antiquewhite;
+    .channelImage {
+      border: 1px solid antiquewhite;
     }
 
+    .channelCard {
+      border: 1px solid antiquewhite;
+    }
   }
 
   @media (min-width: 544px) {
     .root {
       font-size: 1.7vw;
     }
+    .channelImage {
+      border: 2px solid antiquewhite;
+    }
 
     .channelCard {
-      border: 3px solid antiquewhite;
+      border: 2px solid antiquewhite;
     }
   }
 
@@ -94,7 +106,11 @@
       font-size: 1vw;
     }
 
-  }
+    .channelImage {
+      border: 3px solid antiquewhite;
+    }
+
+    }
 
   .channelCard {
 
@@ -106,7 +122,6 @@
 
   .channelImage {
     border-radius: 50%;
-    border: 2px solid antiquewhite;
 
     width: 70%;
     height: auto;
