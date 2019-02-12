@@ -29,15 +29,15 @@
       <div class="block col-12 offset-lg-2 col-lg-5">
 
         <div class="channelInfo">소개 영상</div>
-                <youtube-video :video-url="channel.introVideoUrl" :video-width="videoWidth" :video-height="videoHeight"
-                               style="margin: 3vh;"/>
+        <youtube-video :video-url="channel.introVideoUrl" :video-width="videoWidth" :video-height="videoHeight"
+                       style="margin: 3vh;"/>
 
         <div class="spacer"></div>
 
         <div>
           <div class="channelInfo">구독자 변동</div>
           <div>
-            <subscriber-chart />
+            <subscriber-chart/>
 
           </div>
         </div>
@@ -98,7 +98,7 @@
   }
 
   .channelInfo {
-    color: white;
+    color: antiquewhite;
     font-size: 2em;
   }
 
@@ -114,15 +114,17 @@
     width: 60%;
     margin: 3vh;
     border-radius: 50%;
-    border: 3px solid #bd55c2;
+    border: 3px solid antiquewhite;
   }
 
   .title {
     font-size: 2.5em;
+    color: antiquewhite;
   }
 
   .name {
     font-size: 1.5em;
+    color: antiquewhite;
   }
 
 </style>
