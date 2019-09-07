@@ -43,7 +43,8 @@
               <div style="height: 10px;"/>
 
               <div class="channelSubscriber">
-                구독자 {{channel.subscriber_string}}
+                <p v-if="channel.subscriber_string == -1">비공개</p>
+                <p v-else>구독자 {{channel.subscriber_string}}</p>
               </div>
 
             </div>
