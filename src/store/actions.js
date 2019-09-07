@@ -1,7 +1,7 @@
 import axios from 'axios'
 import Const from '../Constant'
 
-var server = "http://13.209.201.43"
+var server = "https://34clzoto8e.execute-api.ap-northeast-2.amazonaws.com/Yoututu"
 
 export default {
 
