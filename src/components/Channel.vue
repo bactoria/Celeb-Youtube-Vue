@@ -17,8 +17,8 @@
 
           <div class="HannaAir">
             <div> 가입일 : {{channel.joinDate}}</div>
-            <div> 구독자 : {{toLocale(channel.subscriber)}} 명</div>
-            <div> 총 조회수 : {{toLocale(channel.views)}} 회</div>
+            <div> 구독자 : {{channel.subscriber | toLocale}} 명</div>
+            <div> 총 조회수 : {{channel.views | toLocale}} 회</div>
             <!--    <span> {{channel.content}}</span>-->
             <!--  <span> 최근 업데이트 : {{channel.updatedTime}}
                 </span>-->
@@ -74,7 +74,7 @@
       mapGetters({
         channel: 'channel',
       }),
-    methods: {
+    filters: {
       toLocale(num) {
         return num.toLocaleString()
       }
