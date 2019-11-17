@@ -2,14 +2,16 @@
   <div class="root" align="center">
     <router-link to="/">
       <img class="title-img" src="../assets/title.png" style="width: 40%">
-      <div style="height: 2vh;"/>
+      <typed-text/>
     </router-link>
   </div>
 </template>
 
 <script>
+  import TypedText from "./TypedText";
   export default {
-    name: "MainTitle"
+    name: "MainTitle",
+    components: {TypedText}
   }
 </script>
 

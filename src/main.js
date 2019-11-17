@@ -10,9 +10,11 @@ import 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import VueAnalytics from 'vue-analytics'
 import VueLazyload from 'vue-lazyload'
+import VueTypedJs from 'vue-typed-js'
 
 Vue.use(VueLazyload)
 Vue.use(VueYoutube)
+Vue.use(VueTypedJs)
 Vue.config.productionTip = false
 
 
