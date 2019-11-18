@@ -1,6 +1,7 @@
 FROM node:8.9-alpine as builder
 WORKDIR /app
 COPY package.json .
+RUN yarn cache clean
 RUN yarn install
 COPY . .
 RUN npm run build
