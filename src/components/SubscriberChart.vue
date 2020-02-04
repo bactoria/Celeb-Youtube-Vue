@@ -16,7 +16,7 @@
 <script>
   import LineChart from './LineChart.js'
   import Const from '../Constant'
-  import {mapGetters} from 'vuex';
+  import {mapGetters, mapActions} from 'vuex';
 
   export default {
     name: "SubscriberChart",
@@ -30,7 +30,7 @@
     },
     data() {
       return {
-        selected: 'hour',
+        selected: 'week',
         options: {
           legend: {display: false},
           maintainAspectRatio: false,
@@ -53,12 +53,14 @@
         }
       }
     },
-    beforeCreate() {
-      this.$store.dispatch(Const.GET_CHANNEL_LOG_HOUR, this.$route.params.id);
-      this.$store.dispatch(Const.GET_CHANNEL_LOG_DAY, this.$route.params.id);
-      this.$store.dispatch(Const.GET_CHANNEL_LOG_WEEK, this.$route.params.id);
+    mounted() {
+      const CHANNEL_ID = this.$route.params.id;
+      this.GET_CHANNEL_LOG_HOUR(CHANNEL_ID);
+      this.GET_CHANNEL_LOG_DAY(CHANNEL_ID);
+      this.GET_CHANNEL_LOG_WEEK(CHANNEL_ID);
     },
     methods: {
+      ...mapActions(['GET_CHANNEL_LOG_HOUR', 'GET_CHANNEL_LOG_DAY', 'GET_CHANNEL_LOG_WEEK']),
       hour() {
         this.selected = 'hour'
         this.$store.commit(Const.UPDATE_CHANNEL_LOG_HOUR);

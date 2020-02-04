@@ -6,7 +6,7 @@ var server = "https://34clzoto8e.execute-api.ap-northeast-2.amazonaws.com/Youtut
 export default {
 
   [Const.GET_CHANNELS]: (store) => {
-    var url = server + '/channels'
+    const url = server + '/channels'
 
     axios.get(url)
       .then((response) => {
@@ -17,7 +17,7 @@ export default {
   [Const.GET_CHANNEL]: (store, payload) => {
     store.commit(Const.CLEAR_CHANNEL)
 
-    var url = server + "/channels/" + payload
+    const url = server + "/channels/" + payload
 
     axios.get(url)
       .then((response) => {
@@ -26,10 +26,9 @@ export default {
   },
 
   [Const.GET_CHANNEL_LOG_HOUR]: (store, payload) => {
-    var url = server + "/channelLog/" + payload + "/hour"
+    const url = server + "/channelLog/" + payload + "/hour"
 
     axios.get(url)
-
       .then((response) => {
         store.commit(Const.GET_CHANNEL_LOG_HOUR, response.data)
       })
@@ -39,10 +38,9 @@ export default {
   },
 
   [Const.GET_CHANNEL_LOG_DAY]: (store, payload) => {
-    var url = server + "/channelLog/" + payload + "/day"
+    const url = server + "/channelLog/" + payload + "/day"
 
     axios.get(url)
-
       .then((response) => {
         store.commit(Const.GET_CHANNEL_LOG_DAY, response.data)
       })
@@ -51,10 +49,9 @@ export default {
   },
 
   [Const.GET_CHANNEL_LOG_WEEK]: (store, payload) => {
-    var url = server + "/channelLog/" + payload + "/week"
+    const url = server + "/channelLog/" + payload + "/week"
 
     axios.get(url)
-
       .then((response) => {
         store.commit(Const.GET_CHANNEL_LOG_WEEK, response.data)
       })

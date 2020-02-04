@@ -44,26 +44,6 @@ export default {
       ]
     }
   },
-
-  [Const.GET_CHANNEL_LOG_HOUR]: (state, payload) => {
-    state.channelLogHour_X = payload.map(x => x.hour + '시').reverse()
-    state.channelLogHour_Y = payload.map(x => x.subscriber).reverse()
-    state.channelLogHour = payload
-
-    state.datacollection = {
-      labels: state.channelLogHour_X,
-      datasets: [
-        {
-          label: '구독자 수',
-          pointBackgroundColor: 'white',
-//              backgroundColor: 'rgba(138,43,242, 0.6)',
-          borderWidth: 2,
-          borderColor: 'violet',
-          data: state.channelLogHour_Y
-        }
-      ]
-    }
-  },
   [Const.UPDATE_CHANNEL_LOG_WEEK]: (state) => {
     console.log("UPDATE_CHANNEL_LOG_WEEK")
     state.datacollection = {
@@ -80,7 +60,12 @@ export default {
       ]
     }
   },
+  [Const.GET_CHANNEL_LOG_HOUR]: (state, payload) => {
+    state.channelLogHour_X = payload.map(x => x.hour + '시').reverse()
+    state.channelLogHour_Y = payload.map(x => x.subscriber).reverse()
+    state.channelLogHour = payload
 
+  },
   [Const.GET_CHANNEL_LOG_DAY]: (state, payload) => {
     state.channelLogDay_X = payload.map(x => x.date.split("-")[2].replace(/(^0+)/, "") + '일').reverse()
     state.channelLogDay_Y = payload.map(x => x.subscriber).reverse()
@@ -90,5 +75,19 @@ export default {
     state.channelLogWeek_X = payload.map(x => x.date.split("-")[1].replace(/(^0+)/, "") + '/' + x.date.split("-")[2].replace(/(^0+)/, "")).reverse()
     state.channelLogWeek_Y = payload.map(x => x.subscriber).reverse()
     state.channelLogWeek = payload
+
+    state.datacollection = {
+      labels: state.channelLogWeek_X,
+      datasets: [
+        {
+          label: '구독자 수',
+          pointBackgroundColor: 'white',
+//              backgroundColor: 'rgba(138,43,242, 0.6)',
+          borderWidth: 2,
+          borderColor: 'violet',
+          data: state.channelLogWeek_Y
+        }
+      ]
+    }
   }
 }
