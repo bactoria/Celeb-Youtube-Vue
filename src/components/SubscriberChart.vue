@@ -42,7 +42,7 @@
               ticks: {
                 //beginAtZero: true,
                 callback: function (value, index, values) {
-                  if (!Number.isInteger(value)) {
+                  if (!Number.isInteger(value) || value < 0) {
                     return ''
                   }
                   const str = String(value);
