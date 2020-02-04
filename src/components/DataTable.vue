@@ -1,5 +1,5 @@
 <template>
-  <div class="root container">
+  <div class="root container Hanna">
 
     <!--Mobile-->
     <div class="d-xs-block d-md-none">

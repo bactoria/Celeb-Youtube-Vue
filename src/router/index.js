@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from '@/components/Index'
-import Channel from '@/components/Channel'
+import Index from '@/views/index'
+import Channel from '@/views/channel'
 import BootstrapVue from 'bootstrap-vue'
 
 Vue.use(Router)
