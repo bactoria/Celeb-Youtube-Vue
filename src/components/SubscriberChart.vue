@@ -1,7 +1,8 @@
 <template>
   <div align="center">
-    <line-chart :chart-data="datacollection" :options="options"
-                style="width: 80%; height: 150px;"></line-chart>
+
+    <line-chart class="line-chart" :chart-data="datacollection" :options="options"></line-chart>
+
     <div class="container">
       <div class="d-flex flex-row justify-content-center">
         <div v-bind:class="{ nonSelected: selected !== 'hour'}" class="chartBtn col-2" @click="hour()">1시간</div>
@@ -16,7 +17,7 @@
 <script>
   import LineChart from './LineChart.js'
   import Const from '../Constant'
-  import {mapGetters, mapActions} from 'vuex';
+  import {mapActions, mapGetters} from 'vuex';
 
   export default {
     name: "SubscriberChart",
@@ -39,12 +40,49 @@
           scales: {
             yAxes: [{
               ticks: {
-                //       beginAtZero: true,
+                //beginAtZero: true,
                 callback: function (value, index, values) {
-                  if (parseInt(value) >= 1000) {
-                    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                  } else {
-                    return value;
+                  if (!Number.isInteger(value)) {
+                    return ''
+                  }
+                  const str = String(value);
+                  const strLen = str.length;
+                  let first, last;
+                  switch (strLen) {
+                    case 1:
+                    case 2:
+                    case 3:
+                      return str;
+                    case 4:
+                      first = str.substring(0, 1);
+                      last = str.substring(1, 2);
+
+                      if (last == 0) {
+                        return first + "천";
+                      }
+                      return `${first}.${last}천`
+                    case 5:
+                      first = str.substring(0, 1);
+                      last = str.substring(1, 2);
+
+                      if (last == 0) {
+                        return first + "만";
+                      }
+                      return `${first}.${last}만`
+                    case 6:
+                    case 7:
+                    case 8:
+                      return str.substring(0, strLen - 4) + '만';
+                    case 9:
+                      first = str.substring(0, 1);
+                      last = str.substring(1, 2);
+
+                      if (last == 0) {
+                        return first + "억";
+                      }
+                      return `${first}.${last}억`
+                    default:
+                      return str;
                   }
                 }
               }
@@ -78,6 +116,11 @@
 </script>
 
 <style lang="scss" scoped>
+
+  .line-chart {
+    width: 80%;
+    height: 150px;
+  }
 
   .nonSelected {
     opacity: .4;
