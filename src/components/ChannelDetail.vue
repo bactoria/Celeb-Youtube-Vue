@@ -17,8 +17,8 @@
 
           <div class="HannaAir">
             <div> 가입일 : {{channel.joinDate}}</div>
-            <div> 구독자 : {{channel.subscriber | toLocale}} 명</div>
-            <div> 총 조회수 : {{channel.views | toLocale}} 회</div>
+            <div> 구독자 : {{channel.subscriber | toLocaleSubscriber}}</div>
+            <div> 총 조회수 : {{channel.views | toLocaleView}}</div>
           </div>
         </div>
       </div>
@@ -72,9 +72,15 @@
         channel: 'channel',
       }),
     filters: {
-      toLocale(num) {
-        return num.toLocaleString()
-      }
+      toLocaleSubscriber(num) {
+        if (num == -1) {
+          return '비공개';
+        }
+        return num.toLocaleString() + ' 명';
+      },
+      toLocaleView(num) {
+        return num.toLocaleString() + ' 회';
+      },
     }
   }
 </script>
