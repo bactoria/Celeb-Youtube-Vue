@@ -8,4 +8,10 @@ export default {
   datacollection(state) {
     return state.datacollection
   },
+  subscribersInterval(state) {
+    return state.subscribersInterval
+  },
+  options(state) {
+    return state.options
+  }
 }
