@@ -13,7 +13,6 @@ export default {
     state.channel = ''
   },
   [Const.UPDATE_CHANNEL_LOG_HOUR]: (state) => {
-    console.log("UPDATE_CHANNEL_LOG_HOUR")
     state.subscribersInterval = 0
     for (let i = 1; i < state.channelLogHour_Y.length; i++) {
       let interval = state.channelLogHour_Y[i] - state.channelLogHour_Y[i-1];
@@ -40,7 +39,6 @@ export default {
     }
   },
   [Const.UPDATE_CHANNEL_LOG_DAY]: (state) => {
-    console.log("UPDATE_CHANNEL_LOG_DAY")
     state.subscribersInterval = 0
     for (let i = 1; i < state.channelLogDay_Y.length; i++) {
       let interval = state.channelLogDay_Y[i] - state.channelLogDay_Y[i-1];
@@ -67,7 +65,6 @@ export default {
     }
   },
   [Const.UPDATE_CHANNEL_LOG_WEEK]: (state) => {
-    console.log("UPDATE_CHANNEL_LOG_WEEK")
     state.subscribersInterval = 0
     for (let i = 1; i < state.channelLogWeek_Y.length; i++) {
       let interval = state.channelLogWeek_Y[i] - state.channelLogWeek_Y[i-1];
