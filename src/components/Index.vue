@@ -8,7 +8,7 @@
 <script>
 
   import DataTable from "./DataTable";
-  import MyFooter from "./myFooter";
+  import MyFooter from "./AppFooter";
   export default {
     name: "Index",
     components: {MyFooter, DataTable},

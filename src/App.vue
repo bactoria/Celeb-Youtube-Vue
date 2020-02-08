@@ -3,17 +3,18 @@
     <background/>
     <main-title/>
     <router-view class="router"/>
-
+    <app-footer/>
   </div>
 </template>
 
 <script>
   import Background from "./components/Background";
   import MainTitle from "./components/MainTitle";
+  import AppFooter from "./components/AppFooter";
 
   export default {
     name: 'App',
-    components: {MainTitle, Background}
+    components: {AppFooter, MainTitle, Background}
   }
 </script>
 
@@ -25,10 +26,9 @@
   }
 
   .router {
-    position: absolute;
     left: 10vw;
     width: 80vw;
-
+    margin: auto;
   }
 
 </style>
