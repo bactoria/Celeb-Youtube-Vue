@@ -9,7 +9,6 @@
         <div v-bind:class="{ nonSelected: selected !== 'day'}" class="chartBtn col-2" @click="day()">1일</div>
         <div v-bind:class="{ nonSelected: selected !== 'week'}" class="chartBtn col-2" @click="week()">1주</div>
       </div>
-      {{subscribersInterval}}
     </div>
 
   </div>
