@@ -41,9 +41,6 @@
       this.GET_CHANNEL_LOG_HOUR(CHANNEL_ID);
       this.GET_CHANNEL_LOG_DAY(CHANNEL_ID);
       this.GET_CHANNEL_LOG_WEEK(CHANNEL_ID);
-      console.log(this.subscribersInterval);
-      console.log(this.subscribersInterval);
-      console.log(this.subscribersInterval);
     },
     methods: {
       ...mapActions(['GET_CHANNEL_LOG_HOUR', 'GET_CHANNEL_LOG_DAY', 'GET_CHANNEL_LOG_WEEK']),
